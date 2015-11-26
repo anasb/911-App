@@ -10,6 +10,9 @@
 
 @interface ViewController ()
 
+@property (nonatomic, assign) IBOutlet UIButton *myselfButton;
+@property (nonatomic, assign) IBOutlet UIButton *someoneElseButton;
+
 @end
 
 @implementation ViewController
@@ -22,6 +25,15 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if (sender == self.myselfButton) {
+        //
+    } else {
+        //
+    }
 }
 
 @end
