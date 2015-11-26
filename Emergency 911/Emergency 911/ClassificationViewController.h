@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ClassificationViewController.h
 //  Emergency 911
 //
 //  Created by Anas Bouzoubaa on 26/11/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface ClassificationViewController : UIViewController
 
 @end
-
