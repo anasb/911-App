@@ -1,0 +1,519 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B8F459421C078C4C0032F5CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F459411C078C4C0032F5CB /* main.m */; };
+		B8F459451C078C4C0032F5CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F459441C078C4C0032F5CB /* AppDelegate.m */; };
+		B8F459481C078C4C0032F5CB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F459471C078C4C0032F5CB /* ViewController.m */; };
+		B8F4594B1C078C4C0032F5CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8F459491C078C4C0032F5CB /* Main.storyboard */; };
+		B8F4594D1C078C4C0032F5CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8F4594C1C078C4C0032F5CB /* Assets.xcassets */; };
+		B8F459501C078C4C0032F5CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8F4594E1C078C4C0032F5CB /* LaunchScreen.storyboard */; };
+		B8F4595B1C078C4C0032F5CB /* Emergency_911Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F4595A1C078C4C0032F5CB /* Emergency_911Tests.m */; };
+		B8F459661C078C4C0032F5CB /* Emergency_911UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F459651C078C4C0032F5CB /* Emergency_911UITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B8F459571C078C4C0032F5CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B8F459351C078C4C0032F5CB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B8F4593C1C078C4C0032F5CB;
+			remoteInfo = "Emergency 911";
+		};
+		B8F459621C078C4C0032F5CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B8F459351C078C4C0032F5CB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B8F4593C1C078C4C0032F5CB;
+			remoteInfo = "Emergency 911";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B8F4593D1C078C4C0032F5CB /* Emergency 911.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Emergency 911.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8F459411C078C4C0032F5CB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B8F459431C078C4C0032F5CB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B8F459441C078C4C0032F5CB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B8F459461C078C4C0032F5CB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B8F459471C078C4C0032F5CB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B8F4594A1C078C4C0032F5CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B8F4594C1C078C4C0032F5CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B8F4594F1C078C4C0032F5CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B8F459511C078C4C0032F5CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8F459561C078C4C0032F5CB /* Emergency 911Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Emergency 911Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8F4595A1C078C4C0032F5CB /* Emergency_911Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Emergency_911Tests.m; sourceTree = "<group>"; };
+		B8F4595C1C078C4C0032F5CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8F459611C078C4C0032F5CB /* Emergency 911UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Emergency 911UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8F459651C078C4C0032F5CB /* Emergency_911UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Emergency_911UITests.m; sourceTree = "<group>"; };
+		B8F459671C078C4C0032F5CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B8F4593A1C078C4C0032F5CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8F459531C078C4C0032F5CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8F4595E1C078C4C0032F5CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B8F459341C078C4C0032F5CB = {
+			isa = PBXGroup;
+			children = (
+				B8F4593F1C078C4C0032F5CB /* Emergency 911 */,
+				B8F459591C078C4C0032F5CB /* Emergency 911Tests */,
+				B8F459641C078C4C0032F5CB /* Emergency 911UITests */,
+				B8F4593E1C078C4C0032F5CB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B8F4593E1C078C4C0032F5CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B8F4593D1C078C4C0032F5CB /* Emergency 911.app */,
+				B8F459561C078C4C0032F5CB /* Emergency 911Tests.xctest */,
+				B8F459611C078C4C0032F5CB /* Emergency 911UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B8F4593F1C078C4C0032F5CB /* Emergency 911 */ = {
+			isa = PBXGroup;
+			children = (
+				B8F459431C078C4C0032F5CB /* AppDelegate.h */,
+				B8F459441C078C4C0032F5CB /* AppDelegate.m */,
+				B8F459461C078C4C0032F5CB /* ViewController.h */,
+				B8F459471C078C4C0032F5CB /* ViewController.m */,
+				B8F459491C078C4C0032F5CB /* Main.storyboard */,
+				B8F4594C1C078C4C0032F5CB /* Assets.xcassets */,
+				B8F4594E1C078C4C0032F5CB /* LaunchScreen.storyboard */,
+				B8F459511C078C4C0032F5CB /* Info.plist */,
+				B8F459401C078C4C0032F5CB /* Supporting Files */,
+			);
+			path = "Emergency 911";
+			sourceTree = "<group>";
+		};
+		B8F459401C078C4C0032F5CB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B8F459411C078C4C0032F5CB /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B8F459591C078C4C0032F5CB /* Emergency 911Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B8F4595A1C078C4C0032F5CB /* Emergency_911Tests.m */,
+				B8F4595C1C078C4C0032F5CB /* Info.plist */,
+			);
+			path = "Emergency 911Tests";
+			sourceTree = "<group>";
+		};
+		B8F459641C078C4C0032F5CB /* Emergency 911UITests */ = {
+			isa = PBXGroup;
+			children = (
+				B8F459651C078C4C0032F5CB /* Emergency_911UITests.m */,
+				B8F459671C078C4C0032F5CB /* Info.plist */,
+			);
+			path = "Emergency 911UITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B8F4593C1C078C4C0032F5CB /* Emergency 911 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8F4596A1C078C4C0032F5CB /* Build configuration list for PBXNativeTarget "Emergency 911" */;
+			buildPhases = (
+				B8F459391C078C4C0032F5CB /* Sources */,
+				B8F4593A1C078C4C0032F5CB /* Frameworks */,
+				B8F4593B1C078C4C0032F5CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Emergency 911";
+			productName = "Emergency 911";
+			productReference = B8F4593D1C078C4C0032F5CB /* Emergency 911.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B8F459551C078C4C0032F5CB /* Emergency 911Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8F4596D1C078C4C0032F5CB /* Build configuration list for PBXNativeTarget "Emergency 911Tests" */;
+			buildPhases = (
+				B8F459521C078C4C0032F5CB /* Sources */,
+				B8F459531C078C4C0032F5CB /* Frameworks */,
+				B8F459541C078C4C0032F5CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B8F459581C078C4C0032F5CB /* PBXTargetDependency */,
+			);
+			name = "Emergency 911Tests";
+			productName = "Emergency 911Tests";
+			productReference = B8F459561C078C4C0032F5CB /* Emergency 911Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B8F459601C078C4C0032F5CB /* Emergency 911UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B8F459701C078C4C0032F5CB /* Build configuration list for PBXNativeTarget "Emergency 911UITests" */;
+			buildPhases = (
+				B8F4595D1C078C4C0032F5CB /* Sources */,
+				B8F4595E1C078C4C0032F5CB /* Frameworks */,
+				B8F4595F1C078C4C0032F5CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B8F459631C078C4C0032F5CB /* PBXTargetDependency */,
+			);
+			name = "Emergency 911UITests";
+			productName = "Emergency 911UITests";
+			productReference = B8F459611C078C4C0032F5CB /* Emergency 911UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B8F459351C078C4C0032F5CB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Cornell Tech";
+				TargetAttributes = {
+					B8F4593C1C078C4C0032F5CB = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+					B8F459551C078C4C0032F5CB = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = B8F4593C1C078C4C0032F5CB;
+					};
+					B8F459601C078C4C0032F5CB = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = B8F4593C1C078C4C0032F5CB;
+					};
+				};
+			};
+			buildConfigurationList = B8F459381C078C4C0032F5CB /* Build configuration list for PBXProject "Emergency 911" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B8F459341C078C4C0032F5CB;
+			productRefGroup = B8F4593E1C078C4C0032F5CB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B8F4593C1C078C4C0032F5CB /* Emergency 911 */,
+				B8F459551C078C4C0032F5CB /* Emergency 911Tests */,
+				B8F459601C078C4C0032F5CB /* Emergency 911UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B8F4593B1C078C4C0032F5CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8F459501C078C4C0032F5CB /* LaunchScreen.storyboard in Resources */,
+				B8F4594D1C078C4C0032F5CB /* Assets.xcassets in Resources */,
+				B8F4594B1C078C4C0032F5CB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8F459541C078C4C0032F5CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8F4595F1C078C4C0032F5CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B8F459391C078C4C0032F5CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8F459481C078C4C0032F5CB /* ViewController.m in Sources */,
+				B8F459451C078C4C0032F5CB /* AppDelegate.m in Sources */,
+				B8F459421C078C4C0032F5CB /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8F459521C078C4C0032F5CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8F4595B1C078C4C0032F5CB /* Emergency_911Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8F4595D1C078C4C0032F5CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B8F459661C078C4C0032F5CB /* Emergency_911UITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B8F459581C078C4C0032F5CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B8F4593C1C078C4C0032F5CB /* Emergency 911 */;
+			targetProxy = B8F459571C078C4C0032F5CB /* PBXContainerItemProxy */;
+		};
+		B8F459631C078C4C0032F5CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B8F4593C1C078C4C0032F5CB /* Emergency 911 */;
+			targetProxy = B8F459621C078C4C0032F5CB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B8F459491C078C4C0032F5CB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B8F4594A1C078C4C0032F5CB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B8F4594E1C078C4C0032F5CB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B8F4594F1C078C4C0032F5CB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B8F459681C078C4C0032F5CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B8F459691C078C4C0032F5CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B8F4596B1C078C4C0032F5CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Emergency 911/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ML.Emergency-911";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B8F4596C1C078C4C0032F5CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Emergency 911/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ML.Emergency-911";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B8F4596E1C078C4C0032F5CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Emergency 911Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ML.Emergency-911Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Emergency 911.app/Emergency 911";
+			};
+			name = Debug;
+		};
+		B8F4596F1C078C4C0032F5CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Emergency 911Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ML.Emergency-911Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Emergency 911.app/Emergency 911";
+			};
+			name = Release;
+		};
+		B8F459711C078C4C0032F5CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Emergency 911UITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ML.Emergency-911UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Emergency 911";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		B8F459721C078C4C0032F5CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Emergency 911UITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ML.Emergency-911UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Emergency 911";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B8F459381C078C4C0032F5CB /* Build configuration list for PBXProject "Emergency 911" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8F459681C078C4C0032F5CB /* Debug */,
+				B8F459691C078C4C0032F5CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B8F4596A1C078C4C0032F5CB /* Build configuration list for PBXNativeTarget "Emergency 911" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8F4596B1C078C4C0032F5CB /* Debug */,
+				B8F4596C1C078C4C0032F5CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B8F4596D1C078C4C0032F5CB /* Build configuration list for PBXNativeTarget "Emergency 911Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8F4596E1C078C4C0032F5CB /* Debug */,
+				B8F4596F1C078C4C0032F5CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B8F459701C078C4C0032F5CB /* Build configuration list for PBXNativeTarget "Emergency 911UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8F459711C078C4C0032F5CB /* Debug */,
+				B8F459721C078C4C0032F5CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B8F459351C078C4C0032F5CB /* Project object */;
+}
