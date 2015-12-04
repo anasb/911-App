@@ -25,7 +25,7 @@
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setItemSize:CGSizeMake(175, 175)];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    [flowLayout setSectionInset:UIEdgeInsetsMake(10, 10, 0, 10)];
+    [flowLayout setSectionInset:UIEdgeInsetsMake(25, 10, 0, 10)];
     
     [self.myCollectionView setCollectionViewLayout:flowLayout];
     
@@ -55,9 +55,16 @@
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
     UILabel *label = (UILabel*)[cell viewWithTag:100];
-    [label setText:[NSString stringWithFormat:@"Cell %li", (long)indexPath.row]];
+    
+    NSArray *traumas = [NSArray arrayWithObjects:@"Cut", @"Burn", @"Gunshot", @"Vehicle Collision", @"Head Contusion", @"Other", nil];
+    [label setText:traumas[indexPath.row]];
     
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    //
 }
 
 @end

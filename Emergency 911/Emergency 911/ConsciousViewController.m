@@ -96,7 +96,7 @@
         } else {
             body = [NSString stringWithFormat:@"Unconscious Victim \
                                GPS: %f,%f \
-                               Accuracy: +/- %.01f", \
+                               Accuracy: +/- %.01fm", \
                                self.location.coordinate.latitude, self.location.coordinate.longitude, self.location.horizontalAccuracy];
         }
         controller.body = body;
@@ -104,7 +104,7 @@
         controller.messageComposeDelegate = self;
         [self presentViewController:controller animated:YES completion:nil];
         
-    } else {        
+    } else {
         [SVProgressHUD showErrorWithStatus:@"Can't send a text from this device"];
     }
     
