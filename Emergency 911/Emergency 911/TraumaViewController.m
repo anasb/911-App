@@ -8,30 +8,56 @@
 
 #import "TraumaViewController.h"
 
-@interface TraumaViewController ()
+@interface TraumaViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+
+@property (strong, nonatomic) IBOutlet UICollectionView *myCollectionView;
 
 @end
 
 @implementation TraumaViewController
 
+//------------------------------------------------------------------------------------------
+#pragma mark - View lifecycle -
+//------------------------------------------------------------------------------------------
+
 - (void)viewDidLoad {
+
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setItemSize:CGSizeMake(175, 175)];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [flowLayout setSectionInset:UIEdgeInsetsMake(10, 10, 0, 10)];
+    
+    [self.myCollectionView setCollectionViewLayout:flowLayout];
+    
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+//------------------------------------------------------------------------------------------
+#pragma mark - UICollectionView -
+//------------------------------------------------------------------------------------------
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
 }
-*/
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 6;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    
+    UILabel *label = (UILabel*)[cell viewWithTag:100];
+    [label setText:[NSString stringWithFormat:@"Cell %li", (long)indexPath.row]];
+    
+    return cell;
+}
 
 @end

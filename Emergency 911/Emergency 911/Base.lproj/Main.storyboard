@@ -254,10 +254,10 @@
             </objects>
             <point key="canvasLocation" x="3336" y="436"/>
         </scene>
-        <!--View Controller-->
+        <!--Trauma-->
         <scene sceneID="zbE-QB-vQB">
             <objects>
-                <viewController id="41c-D7-Mgj" sceneMemberID="viewController">
+                <viewController title="Trauma" id="41c-D7-Mgj" customClass="TraumaViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sgO-9j-1Fp"/>
                         <viewControllerLayoutGuide type="bottom" id="1Rn-Xf-R7a"/>
@@ -267,53 +267,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7aN-zl-hhg">
-                                <rect key="frame" x="0.0" y="239" width="600" height="361"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nWZ-2z-ger">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="180" height="180"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="100" minY="30" maxX="40" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell1" id="7m4-6V-W0n">
-                                        <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="AN4-TF-OR8">
+                                        <rect key="frame" x="100" y="94" width="175" height="175"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DtS-1o-kCg">
+                                                    <rect key="frame" x="66.5" y="77.5" width="42" height="20.5"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                             <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <animations/>
-                                        <color key="backgroundColor" red="0.30196078430000001" green="0.27058823529999998" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell2" id="IQ8-J7-rTc">
-                                        <rect key="frame" x="61" y="64" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <animations/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <animations/>
-                                        <color key="backgroundColor" red="0.1021514161" green="0.50551640799999997" blue="0.98499455339999997" alpha="1" colorSpace="calibratedRGB"/>
-                                    </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell3" id="dAC-PK-hKw">
-                                        <rect key="frame" x="122" y="64" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <animations/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <animations/>
-                                        <color key="backgroundColor" red="0.12941176469999999" green="0.75294117650000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="DtS-1o-kCg" firstAttribute="centerX" secondItem="AN4-TF-OR8" secondAttribute="centerX" id="5X3-aE-9Om"/>
+                                            <constraint firstItem="DtS-1o-kCg" firstAttribute="centerY" secondItem="AN4-TF-OR8" secondAttribute="centerY" id="EVC-mc-iU8"/>
+                                        </constraints>
+                                        <size key="customSize" width="175" height="175"/>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="41c-D7-Mgj" id="5hb-SB-2xe"/>
+                                    <outlet property="delegate" destination="41c-D7-Mgj" id="J6Y-su-dKh"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <animations/>
@@ -322,9 +316,12 @@
                             <constraint firstItem="7aN-zl-hhg" firstAttribute="leading" secondItem="1Ff-Mg-opw" secondAttribute="leadingMargin" constant="-20" id="09y-3c-tzw"/>
                             <constraint firstItem="1Rn-Xf-R7a" firstAttribute="top" secondItem="7aN-zl-hhg" secondAttribute="bottom" id="7Mk-H0-Qqt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7aN-zl-hhg" secondAttribute="trailing" constant="-20" id="GQM-Sk-Rka"/>
-                            <constraint firstItem="7aN-zl-hhg" firstAttribute="top" secondItem="sgO-9j-1Fp" secondAttribute="bottom" constant="175" id="rzk-gb-6g9"/>
+                            <constraint firstItem="7aN-zl-hhg" firstAttribute="top" secondItem="sgO-9j-1Fp" secondAttribute="bottom" constant="-64" id="rzk-gb-6g9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="myCollectionView" destination="7aN-zl-hhg" id="LbT-OJ-t6i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TH0-Te-DcE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -428,7 +425,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="oih-Wk-gAj"/>
+        <segue reference="nZ1-lk-hwf"/>
         <segue reference="WFf-hN-AiG"/>
         <segue reference="aLd-PW-ZQH"/>
     </inferredMetricsTieBreakers>
