@@ -20,6 +20,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    self.navigationController set
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 - (void)didReceiveMemoryWarning {
