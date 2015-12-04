@@ -360,6 +360,9 @@
                                 <state key="normal" title="UNCONSCIOUS">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="tappedUnconscious:" destination="Lyp-EY-z9b" eventType="touchUpInside" id="i6h-wm-NHF"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXz-a8-Rba">
                                 <rect key="frame" x="0.0" y="440" width="600" height="120"/>

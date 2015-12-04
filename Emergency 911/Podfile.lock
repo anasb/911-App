@@ -1,0 +1,13 @@
+PODS:
+  - INTULocationManager (HEAD based on 4.1.1)
+  - SVProgressHUD (HEAD based on 2.0-beta)
+
+DEPENDENCIES:
+  - INTULocationManager (HEAD)
+  - SVProgressHUD (HEAD)
+
+SPEC CHECKSUMS:
+  INTULocationManager: 83c7373048d583cda57e25eefb9bb8a3675acf16
+  SVProgressHUD: c83337f10ed32d701c423d519059a249973c8662
+
+COCOAPODS: 0.39.0

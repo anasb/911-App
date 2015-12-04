@@ -1,0 +1,2 @@
+pod 'INTULocationManager', :head
+pod 'SVProgressHUD', :head

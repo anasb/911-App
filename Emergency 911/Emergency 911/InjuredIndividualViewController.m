@@ -8,6 +8,7 @@
 
 #import "InjuredIndividualViewController.h"
 #import "CurrentReport.h"
+#import <INTULocationManager/INTULocationManager.h>
 
 @interface InjuredIndividualViewController ()
 
@@ -21,7 +22,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.navigationController set
+    // Get user location first
+    INTULocationManager *locMgr = [INTULocationManager sharedInstance];
+    [locMgr requestLocationWithDesiredAccuracy:INTULocationAccuracyHouse
+                                       timeout:0.0
+                          delayUntilAuthorized:YES
+                                         block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+                                             // nothing to do here
+                                         }];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle
