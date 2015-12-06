@@ -7,6 +7,7 @@
 //
 
 #import "TraumaViewController.h"
+#import "CurrentReport.h"
 
 @interface TraumaViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -56,7 +57,7 @@
     
     UILabel *label = (UILabel*)[cell viewWithTag:100];
     
-    NSArray *traumas = [NSArray arrayWithObjects:@"Cut", @"Burn", @"Gunshot", @"Vehicle Collision", @"Head Contusion", @"Other", nil];
+    NSArray *traumas = [NSArray arrayWithObjects:@"Fall", @"Pedestrian Struck", @"Motor Vehicle Accident", @"Assault", @"Burn", @"Other", nil];
     [label setText:traumas[indexPath.row]];
     
     return cell;
@@ -64,7 +65,8 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    //
+    NSArray *traumas = [NSArray arrayWithObjects:@"Fall", @"Pedestrian Struck", @"Motor Vehicle Accident", @"Assault", @"Burn", @"Other", nil];
+    [[CurrentReport sharedReport] setTraumaType:[traumas objectAtIndex:indexPath.row]];
 }
 
 @end

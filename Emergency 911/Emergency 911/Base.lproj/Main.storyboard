@@ -28,6 +28,9 @@
                                 <state key="normal" title="Signup">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="YWh-yI-Kjg" kind="presentation" id="lXQ-2J-DKm"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who's injured?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFF-Id-nS4">
                                 <rect key="frame" x="20" y="85" width="560" height="121"/>
@@ -342,10 +345,10 @@
             </objects>
             <point key="canvasLocation" x="4140" y="431"/>
         </scene>
-        <!--View Controller-->
+        <!--Body Parts View Controller-->
         <scene sceneID="RSM-7n-ttz">
             <objects>
-                <viewController id="uVn-6M-2oo" sceneMemberID="viewController">
+                <viewController id="uVn-6M-2oo" customClass="BodyPartsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tqm-k8-yF8"/>
                         <viewControllerLayoutGuide type="bottom" id="X9Z-Vd-x9m"/>
@@ -354,22 +357,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="head outline" translatesAutoresizingMaskIntoConstraints="NO" id="VVD-Wk-DM7">
-                                <rect key="frame" x="254" y="75" width="93" height="61"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="61" id="9wz-fO-dwi"/>
-                                    <constraint firstAttribute="width" constant="93" id="iQj-gE-R74"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chest outline" translatesAutoresizingMaskIntoConstraints="NO" id="Sdh-vT-DEQ">
-                                <rect key="frame" x="257" y="137" width="86" height="147"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="147" id="5bF-jw-6Ku"/>
-                                    <constraint firstAttribute="width" constant="86" id="Y9b-7Q-mjE"/>
-                                </constraints>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left arm outline" translatesAutoresizingMaskIntoConstraints="NO" id="Gjm-9j-zUB">
                                 <rect key="frame" x="326" y="96" width="69" height="218"/>
                                 <animations/>
@@ -400,6 +387,22 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="8dR-mo-dYa"/>
                                     <constraint firstAttribute="width" constant="69" id="vE9-eZ-oIh"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chest outline" translatesAutoresizingMaskIntoConstraints="NO" id="Sdh-vT-DEQ">
+                                <rect key="frame" x="257" y="137" width="86" height="147"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="147" id="5bF-jw-6Ku"/>
+                                    <constraint firstAttribute="width" constant="86" id="Y9b-7Q-mjE"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="head outline" translatesAutoresizingMaskIntoConstraints="NO" id="VVD-Wk-DM7">
+                                <rect key="frame" x="254" y="75" width="93" height="61"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="9wz-fO-dwi"/>
+                                    <constraint firstAttribute="width" constant="93" id="iQj-gE-R74"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the injured body part" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mng-nv-zmD">
@@ -451,10 +454,131 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="chestImage" destination="Sdh-vT-DEQ" id="dne-0W-mCL"/>
+                        <outlet property="headImage" destination="VVD-Wk-DM7" id="3dP-0o-J4Y"/>
+                        <outlet property="leftArmImage" destination="Gjm-9j-zUB" id="drE-Jh-911"/>
+                        <outlet property="leftLegImage" destination="S9M-Vz-cEW" id="6q8-tG-JiE"/>
+                        <outlet property="rightArmImage" destination="hok-zu-Sdg" id="AkN-ty-ecy"/>
+                        <outlet property="rightLegImage" destination="b7J-xV-cHu" id="McY-Y1-CdT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oeR-SD-s3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5027" y="431"/>
+        </scene>
+        <!--Signup View Controller-->
+        <scene sceneID="kpC-A8-9cP">
+            <objects>
+                <viewController id="YWh-yI-Kjg" customClass="SignupViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Sq-3F-AWp"/>
+                        <viewControllerLayoutGuide type="bottom" id="8T9-cl-rlo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dHk-JN-rxu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lw7-MF-pRo">
+                                <rect key="frame" x="163" y="245" width="275" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="RSR-jx-H0S"/>
+                                    <constraint firstAttribute="width" constant="275" id="g19-Pr-VQA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                <connections>
+                                    <action selector="editingEnded:" destination="YWh-yI-Kjg" eventType="editingDidEnd" id="pE5-tm-aAp"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By allowing access to HealthKit, we will pass on critical information to medical responders (your data will be kept private)." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="tIY-JP-F8P">
+                                <rect key="frame" x="20" y="79" width="560" height="147"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="147" id="hvT-aI-7Xo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YUl-nC-CqC">
+                                <rect key="frame" x="250" y="308" width="101" height="36"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.82745098039999998" green="0.3294117647" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="101" id="3f0-Sw-t8N"/>
+                                    <constraint firstAttribute="height" constant="36" id="JFY-EO-SS9"/>
+                                </constraints>
+                                <state key="normal" title="HealthKit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="requestHealthKit:" destination="YWh-yI-Kjg" eventType="touchUpInside" id="FhZ-M5-hbi"/>
+                                </connections>
+                            </button>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PxG-Dd-epx">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="0dc-cF-Bph"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" red="0.82745098039999998" green="0.3294117647" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Profile" id="J5g-Jh-lw6">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="1Jb-Y0-rqN">
+                                            <connections>
+                                                <action selector="cancelAction:" destination="YWh-yI-Kjg" id="mtz-Yp-PoE"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="5aa-Jj-L03">
+                                            <connections>
+                                                <action selector="doneAction:" destination="YWh-yI-Kjg" id="z7S-5C-EOO"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iHT-xW-J6W">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="20"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.82745098039999998" green="0.3294117647" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="jKF-0R-IJP"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="0.17254901959999999" green="0.24313725489999999" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="tIY-JP-F8P" firstAttribute="leading" secondItem="dHk-JN-rxu" secondAttribute="leadingMargin" id="0TQ-Jv-odi"/>
+                            <constraint firstItem="iHT-xW-J6W" firstAttribute="top" secondItem="dHk-JN-rxu" secondAttribute="topMargin" id="AYV-dJ-cd6"/>
+                            <constraint firstItem="tIY-JP-F8P" firstAttribute="top" secondItem="PxG-Dd-epx" secondAttribute="bottom" constant="15" id="Dz6-bB-rVs"/>
+                            <constraint firstItem="YUl-nC-CqC" firstAttribute="centerX" secondItem="dHk-JN-rxu" secondAttribute="centerX" id="F5A-35-Wph"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PxG-Dd-epx" secondAttribute="trailing" constant="-20" id="FuX-g1-iJB"/>
+                            <constraint firstItem="PxG-Dd-epx" firstAttribute="leading" secondItem="dHk-JN-rxu" secondAttribute="leadingMargin" constant="-20" id="ILz-yz-q0a"/>
+                            <constraint firstItem="tIY-JP-F8P" firstAttribute="top" secondItem="PxG-Dd-epx" secondAttribute="bottom" constant="15" id="JJa-L6-w51"/>
+                            <constraint firstItem="YUl-nC-CqC" firstAttribute="top" secondItem="lw7-MF-pRo" secondAttribute="bottom" constant="33" id="ZIQ-o4-WuO"/>
+                            <constraint firstItem="lw7-MF-pRo" firstAttribute="centerX" secondItem="dHk-JN-rxu" secondAttribute="centerX" id="a8Z-2W-PRa"/>
+                            <constraint firstItem="lw7-MF-pRo" firstAttribute="top" secondItem="tIY-JP-F8P" secondAttribute="bottom" constant="19" id="ecF-HG-HVc"/>
+                            <constraint firstItem="iHT-xW-J6W" firstAttribute="leading" secondItem="dHk-JN-rxu" secondAttribute="leadingMargin" constant="-20" id="lTt-5n-mGS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iHT-xW-J6W" secondAttribute="trailing" constant="-20" id="oKC-1y-Qz8"/>
+                            <constraint firstItem="tIY-JP-F8P" firstAttribute="trailing" secondItem="dHk-JN-rxu" secondAttribute="trailingMargin" id="xbP-kd-rzp"/>
+                            <constraint firstItem="PxG-Dd-epx" firstAttribute="top" secondItem="dHk-JN-rxu" secondAttribute="topMargin" constant="20" id="yH3-cv-mjZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="lw7-MF-pRo" id="yDH-Xz-6Qm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fvf-iY-Xwj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="950" y="1298"/>
         </scene>
         <!--Consciousness-->
         <scene sceneID="KC4-yr-bN6">
@@ -565,7 +689,7 @@
         <image name="right leg " width="42" height="153"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nZ1-lk-hwf"/>
+        <segue reference="oih-Wk-gAj"/>
         <segue reference="WFf-hN-AiG"/>
         <segue reference="aLd-PW-ZQH"/>
     </inferredMetricsTieBreakers>

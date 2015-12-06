@@ -35,20 +35,13 @@ typedef NS_ENUM(NSUInteger, ic) {
     unknownCritical,
 };
 
-typedef NS_ENUM(NSUInteger, t) {
-    gunshot,
-    burn,
-    cut,
-    roadAccident,
-    unknownTrauma,
-};
-
 // Properties
 @property (nonatomic, assign) NSUInteger injuredIndividual;
 @property (nonatomic, assign) NSUInteger consciousness;
 @property (nonatomic, assign) NSUInteger breathing;
 @property (nonatomic, assign) NSUInteger injurySeverity;
-@property (nonatomic, assign) NSUInteger traumaId;
+@property (nonatomic, strong) NSString *traumaType;
+@property (nonatomic, strong) NSString *bodyPartHurt;
 
 // Methods
 + (instancetype)sharedReport;

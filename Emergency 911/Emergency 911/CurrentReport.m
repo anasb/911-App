@@ -21,7 +21,8 @@
         [_sharedInstance setConsciousness:unknownConsciousness];
         [_sharedInstance setBreathing:unknownBreathing];
         [_sharedInstance setInjurySeverity:unknownCritical];
-        [_sharedInstance setTraumaId:unknownTrauma];
+        [_sharedInstance setTraumaType:@""];
+        [_sharedInstance setBodyPartHurt:@""];
     });
     return _sharedInstance;
 }
