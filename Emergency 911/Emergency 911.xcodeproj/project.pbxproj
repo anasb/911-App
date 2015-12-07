@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		61C4A023EF26E2A32FE3E521 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB3295EDF866A9B1F38D34D /* libPods.a */; };
+		B867A2B81C151CEB00D1E60C /* TwitterInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = B867A2B71C151CEB00D1E60C /* TwitterInterface.m */; };
 		B8F459421C078C4C0032F5CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F459411C078C4C0032F5CB /* main.m */; };
 		B8F459451C078C4C0032F5CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F459441C078C4C0032F5CB /* AppDelegate.m */; };
 		B8F459481C078C4C0032F5CB /* InjuredIndividualViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F459471C078C4C0032F5CB /* InjuredIndividualViewController.m */; };
@@ -47,6 +48,8 @@
 		13B31519C561B92E2C6455DE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		3EB3295EDF866A9B1F38D34D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E64DD9EAB93335F418433F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		B867A2B61C151CEB00D1E60C /* TwitterInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterInterface.h; sourceTree = "<group>"; };
+		B867A2B71C151CEB00D1E60C /* TwitterInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterInterface.m; sourceTree = "<group>"; };
 		B8F4593D1C078C4C0032F5CB /* Emergency 911.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Emergency 911.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F459411C078C4C0032F5CB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B8F459431C078C4C0032F5CB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -159,6 +162,8 @@
 				B8F459791C07A0240032F5CB /* View Controllers - Questions */,
 				B8F459731C0796140032F5CB /* CurrentReport.h */,
 				B8F459741C0796140032F5CB /* CurrentReport.m */,
+				B867A2B61C151CEB00D1E60C /* TwitterInterface.h */,
+				B867A2B71C151CEB00D1E60C /* TwitterInterface.m */,
 				B8F459491C078C4C0032F5CB /* Main.storyboard */,
 				B8F4594C1C078C4C0032F5CB /* Assets.xcassets */,
 				B8F4594E1C078C4C0032F5CB /* LaunchScreen.storyboard */,
@@ -406,6 +411,7 @@
 				B8F834E51C139BC2006827C8 /* SignupViewController.m in Sources */,
 				B8F459751C0796140032F5CB /* CurrentReport.m in Sources */,
 				B8F459781C07A01E0032F5CB /* ConsciousViewController.m in Sources */,
+				B867A2B81C151CEB00D1E60C /* TwitterInterface.m in Sources */,
 				B8F4597C1C07A0600032F5CB /* BreathingViewController.m in Sources */,
 				B8F834EB1C13ADBB006827C8 /* BodyPartsViewController.m in Sources */,
 				B8F459451C078C4C0032F5CB /* AppDelegate.m in Sources */,

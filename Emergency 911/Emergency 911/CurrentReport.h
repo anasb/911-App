@@ -42,6 +42,7 @@ typedef NS_ENUM(NSUInteger, ic) {
 @property (nonatomic, assign) NSUInteger injurySeverity;
 @property (nonatomic, strong) NSString *traumaType;
 @property (nonatomic, strong) NSString *bodyPartHurt;
+@property (nonatomic, strong) NSMutableDictionary *tweetsRelatedTo;
 
 // Methods
 + (instancetype)sharedReport;

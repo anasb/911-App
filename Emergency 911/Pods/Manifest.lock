@@ -1,13 +1,16 @@
 PODS:
   - INTULocationManager (HEAD based on 4.1.1)
+  - STTwitter (HEAD based on 0.2.2)
   - SVProgressHUD (HEAD based on 2.0-beta)
 
 DEPENDENCIES:
   - INTULocationManager (HEAD)
+  - STTwitter (HEAD)
   - SVProgressHUD (HEAD)
 
 SPEC CHECKSUMS:
   INTULocationManager: 83c7373048d583cda57e25eefb9bb8a3675acf16
+  STTwitter: eb85d8770ddb0f8989f341cf41ea875e90ac6e7f
   SVProgressHUD: c83337f10ed32d701c423d519059a249973c8662
 
 COCOAPODS: 0.39.0

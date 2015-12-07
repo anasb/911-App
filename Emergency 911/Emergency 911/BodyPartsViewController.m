@@ -207,7 +207,7 @@
     }];
     [self.healthStore executeQuery:heartQuery];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self sendTextMessageWithBirth:DOB andSex:sex andBloodType:bloodType andBMI:BMI andHeight:height andWeight:weight andHeartRate:heartRate];
     });
 }
@@ -223,85 +223,92 @@
     [SVProgressHUD dismiss];
     
     MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
-    if ([MFMessageComposeViewController canSendText]) {
-        
-        NSString *body = @"";
-        
-        // Location
-        if (self.location) {
-            body = [body stringByAppendingFormat:@"GPS: %f,%f (+/- %.01fm).\n", \
-                    self.location.coordinate.latitude, self.location.coordinate.longitude, self.location.horizontalAccuracy];
-        }
-        
-        // Name
-        if ([[NSUserDefaults standardUserDefaults] objectForKey:@"USER_NAME"]) {
-            body = [body stringByAppendingFormat:@"Name: %@.\n", [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_NAME"]];
-        }
-        
-        // Age
-        if (DOB) {
-            NSDate* now = [NSDate date];
-            NSDateComponents* ageComponents = [[NSCalendar currentCalendar]
-                                               components:NSCalendarUnitYear
-                                               fromDate:DOB
-                                               toDate:now
-                                               options:0];
-            NSInteger age = [ageComponents year];
-            body = [body stringByAppendingFormat:@"Age: %li, ", (long)age];
-        }
-        
-        // Sex
-        if (sex) {
-            body = [body stringByAppendingFormat:@"Sex: %@, ", sex];
-        }
-        
-        // Height
-        if (height) {
-            body = [body stringByAppendingFormat:@"Height: %.02f feet, ", [height doubleValueForUnit:[HKUnit footUnit]]];
-        }
-        
-        // Weight
-        if (weight) {
-            body = [body stringByAppendingFormat:@"Weight: %ldlbs, ", (long)[weight doubleValueForUnit:[HKUnit poundUnit]]];
-        }
-        
-        // BMI
-        if (BMI) {
-            body = [body stringByAppendingFormat:@"BMI: %.01f.\n", [BMI doubleValueForUnit:[HKUnit countUnit]]];
-        }
-        
-        // HR
-        if (heartRate) {
-            body = [body stringByAppendingFormat:@"HR: %@.\n", heartRate];
-        }
-        
-        // Breathing
-        NSString *tmp = [[CurrentReport sharedReport] breathing] == notBreathing ? @" not " : @" ";
-        body = [body stringByAppendingFormat:@"Victim%@breathing. ", tmp];
-        
-        // Severity
-        tmp = [[CurrentReport sharedReport] injurySeverity] == nonCritical ? @"Non c" : @"C";
-        body = [body stringByAppendingFormat:@"%@ritical injury. ", tmp];
-        
-        // Trauma
-        body = [body stringByAppendingFormat:@"%@. ", [[CurrentReport sharedReport] traumaType]];
-        
-        // Body Part
-        body = [body stringByAppendingFormat:@"Body Part hurt: %@.", [[CurrentReport sharedReport] bodyPartHurt]];
-        
-        controller.body = body;
-        controller.recipients = @[@"2911"];
-        controller.messageComposeDelegate = self;
-
-        // Fix blank view bug?
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self presentViewController:controller animated:YES completion:nil];
-        });
-        
-    } else {
+    if (![MFMessageComposeViewController canSendText]) {
         [SVProgressHUD showErrorWithStatus:@"Can't send a text from this device"];
+        return;
+    }
+        
+    NSString *body = @"";
+    
+    // Location
+    if (self.location) {
+        body = [body stringByAppendingFormat:@"GPS: %f,%f (+/- %.01fm).\n", \
+                self.location.coordinate.latitude, self.location.coordinate.longitude, self.location.horizontalAccuracy];
     }
     
+    // Name
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"USER_NAME"]) {
+        body = [body stringByAppendingFormat:@"Name: %@.", [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_NAME"]];
+    }
+    
+    // Age
+    if (DOB) {
+        NSDate* now = [NSDate date];
+        NSDateComponents* ageComponents = [[NSCalendar currentCalendar]
+                                           components:NSCalendarUnitYear
+                                           fromDate:DOB
+                                           toDate:now
+                                           options:0];
+        NSInteger age = [ageComponents year];
+        body = [body stringByAppendingFormat:@"Age: %li. ", (long)age];
+    }
+    
+    // Sex
+    if (sex) {
+        body = [body stringByAppendingFormat:@"Sex: %@. ", sex];
+    }
+    
+    // Height
+    if (height) {
+        body = [body stringByAppendingFormat:@"Height: %.02f feet. ", [height doubleValueForUnit:[HKUnit footUnit]]];
+    }
+    
+    // Weight
+    if (weight) {
+        body = [body stringByAppendingFormat:@"Weight: %ldlbs. ", (long)[weight doubleValueForUnit:[HKUnit poundUnit]]];
+    }
+    
+    // BMI
+    if (BMI) {
+        body = [body stringByAppendingFormat:@"BMI: %.01f.\n", [BMI doubleValueForUnit:[HKUnit countUnit]]];
+    }
+    
+    // HR
+    if (heartRate) {
+        body = [body stringByAppendingFormat:@"HR: %@.\n", heartRate];
+    }
+    
+    // Breathing
+    NSString *tmp = [[CurrentReport sharedReport] breathing] == notBreathing ? @" not " : @" ";
+    body = [body stringByAppendingFormat:@"Victim%@breathing. ", tmp];
+    
+    // Severity
+    tmp = [[CurrentReport sharedReport] injurySeverity] == nonCritical ? @"Non c" : @"C";
+    body = [body stringByAppendingFormat:@"%@ritical injury. ", tmp];
+    
+    // Trauma
+    body = [body stringByAppendingFormat:@"%@. ", [[CurrentReport sharedReport] traumaType]];
+    
+    // Body Part
+    body = [body stringByAppendingFormat:@"\nBody Part hurt: %@.", [[CurrentReport sharedReport] bodyPartHurt]];
+    
+    // Related Tweets
+    NSMutableDictionary *tweets = [[CurrentReport sharedReport] tweetsRelatedTo];
+    if ([[tweets allKeys] count] > 0) {
+        body = [body stringByAppendingString:@"\nNearby tweets related to:"];
+        for (NSString *key in tweets) {
+            body = [body stringByAppendingFormat:@"\n%@: %@", [key capitalizedString], [tweets objectForKey:key]];
+        }
+    }
+    
+    controller.body = body;
+    controller.recipients = @[@"2911"];
+    controller.messageComposeDelegate = self;
+
+    // Fix blank view bug?
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self presentViewController:controller animated:YES completion:nil];
+    });
 }
 
 - (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result

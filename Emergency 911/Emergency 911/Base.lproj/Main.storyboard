@@ -348,7 +348,7 @@
         <!--Body Parts View Controller-->
         <scene sceneID="RSM-7n-ttz">
             <objects>
-                <viewController id="uVn-6M-2oo" customClass="BodyPartsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="bodyPartsVC" id="uVn-6M-2oo" customClass="BodyPartsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tqm-k8-yF8"/>
                         <viewControllerLayoutGuide type="bottom" id="X9Z-Vd-x9m"/>

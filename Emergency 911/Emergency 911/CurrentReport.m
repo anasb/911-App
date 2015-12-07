@@ -23,19 +23,9 @@
         [_sharedInstance setInjurySeverity:unknownCritical];
         [_sharedInstance setTraumaType:@""];
         [_sharedInstance setBodyPartHurt:@""];
+        [_sharedInstance setTweetsRelatedTo:[[NSMutableDictionary alloc] init]];
     });
     return _sharedInstance;
 }
-
-//- (NSString*)description
-//{
-//    NSString *output = [NSString stringWithFormat:@"Injured:%@,\n \
-//                                                    Conscious: %@, \n \
-//                                                    Breathing: %@, \n \
-//                                                    Classification: %@, \n \
-//                                                    Trauma: %@"];
-//    
-//    return output;
-//}
 
 @end

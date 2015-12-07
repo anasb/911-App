@@ -9,6 +9,7 @@
 #import "InjuredIndividualViewController.h"
 #import "CurrentReport.h"
 #import <INTULocationManager/INTULocationManager.h>
+#import "TwitterInterface.h"
 
 @interface InjuredIndividualViewController ()
 
@@ -25,10 +26,31 @@
     // Get user location first
     INTULocationManager *locMgr = [INTULocationManager sharedInstance];
     [locMgr requestLocationWithDesiredAccuracy:INTULocationAccuracyHouse
-                                       timeout:0.0
+                                       timeout:3.0
                           delayUntilAuthorized:YES
                                          block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
                                              // nothing to do here
+                                             
+                                             dispatch_async(dispatch_get_main_queue(), ^{
+                                                 
+                                                 NSArray *keywords = @[@"fire", @"gunshot", @"accident", @"assault", @"explosion"];
+                                                 
+                                                 for (NSString *keyword in keywords) {
+                                                     [TwitterInterface queryTwitterAPIWithKeyword:keyword
+                                                                                       atLatitude:currentLocation.coordinate.latitude
+                                                                                     andLongitude:currentLocation.coordinate.longitude
+                                                                                     successBlock:^(NSArray *statuses) {
+                                                                                         
+                                                                                         // Save number of tweets for that keyword
+                                                                                         NSString *num = [NSString stringWithFormat:@"%lu", (unsigned long)statuses.count];
+                                                                                         [[[CurrentReport sharedReport] tweetsRelatedTo] setObject:num forKey:keyword];
+                                                                                         
+                                                                                     } errorBlock:nil];
+                                                 }
+                                                 
+
+                                                 
+                                             });
                                          }];
 }
 
