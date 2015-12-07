@@ -301,12 +301,12 @@
         }
     }
     
-    controller.body = body;
-    controller.recipients = @[@"2911"];
     controller.messageComposeDelegate = self;
+    controller.recipients = @[@"2911"];
+    controller.body = body;
 
     // Fix blank view bug?
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_async(dispatch_get_main_queue(), ^{
         [self presentViewController:controller animated:YES completion:nil];
     });
 }
