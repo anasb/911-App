@@ -193,14 +193,14 @@
     // Get HR
     __block NSString *heartRate;
     HKQuantityType *heartType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
-    HKSampleQuery *heartQuery = [[HKSampleQuery alloc] initWithSampleType:heartType  predicate:nil limit:1 sortDescriptors:nil resultsHandler:^(HKSampleQuery * _Nonnull query, NSArray<__kindof HKSample *> * _Nullable results, NSError * _Nullable error) {
+    HKSampleQuery *heartQuery = [[HKSampleQuery alloc] initWithSampleType:heartType  predicate:nil limit:1 sortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:HKSampleSortIdentifierEndDate ascending:false]] resultsHandler:^(HKSampleQuery * _Nonnull query, NSArray<__kindof HKSample *> * _Nullable results, NSError * _Nullable error) {
         
         if (results.count > 0) {
             HKQuantitySample *sample = (HKQuantitySample*)results[0];
             dispatch_async(dispatch_get_main_queue(), ^{
-                double minutes_ago = floor([[NSDate date] timeIntervalSinceDate:sample.endDate]/60);
-                NSString *mn_ago_string = minutes_ago <= 60.0 ? [NSString stringWithFormat:@"%ld mn ago", (long)minutes_ago] : [NSString stringWithFormat:@"> than 1h ago"];
-                heartRate = [NSString stringWithFormat:@"%ld (%@)", (long)[sample.quantity doubleValueForUnit:[HKUnit unitFromString:@"count/min"]], mn_ago_string];
+                long mn_ago = (long)floor([[NSDate date] timeIntervalSinceDate:sample.endDate] / 60);
+                NSString *mn_ago_str = mn_ago <= 60 ? [NSString stringWithFormat:@"%ld mn ago", mn_ago] : [NSString stringWithFormat:@"> than 1h ago"];
+                heartRate = [NSString stringWithFormat:@"%ld (%@)", (long)[sample.quantity doubleValueForUnit:[HKUnit unitFromString:@"count/min"]], mn_ago_str];
             });
         }
         
@@ -232,14 +232,28 @@
     
     // Location
     if (self.location) {
-        body = [body stringByAppendingFormat:@"GPS: %f,%f (+/- %.01fm).\n", \
+        body = [body stringByAppendingFormat:@"LOCATION: (%f,%f) (+/- %.01fm).", \
                 self.location.coordinate.latitude, self.location.coordinate.longitude, self.location.horizontalAccuracy];
     }
     
     // Name
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"USER_NAME"]) {
-        body = [body stringByAppendingFormat:@"Name: %@. ", [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_NAME"]];
+        body = [body stringByAppendingFormat:@"\nVICTIM NAME: %@. ", [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_NAME"]];
     }
+    
+    // Incident
+    body = [body stringByAppendingFormat:@"\nINCIDENT: %@. ", [[CurrentReport sharedReport] traumaType]];
+    
+    // Severity
+    NSString *tmp = [[CurrentReport sharedReport] injurySeverity] == nonCritical ? @"\nCONDITION: Non c" : @"\nCONDITION: C";
+    body = [body stringByAppendingFormat:@"%@ritical. ", tmp];
+    
+    // Breathing
+    tmp = [[CurrentReport sharedReport] breathing] == notBreathing ? @" not " : @" ";
+    body = [body stringByAppendingFormat:@"(Victim%@breathing). ", tmp];
+    
+    // Body Part
+    body = [body stringByAppendingFormat:@"\nTRAUMA: %@.", [[CurrentReport sharedReport] bodyPartHurt]];
     
     // Age
     if (DOB) {
@@ -250,7 +264,7 @@
                                            toDate:now
                                            options:0];
         NSInteger age = [ageComponents year];
-        body = [body stringByAppendingFormat:@"Age: %li. ", (long)age];
+        body = [body stringByAppendingFormat:@"\n\nHISTORY: Age: %li. ", (long)age];
     }
     
     // Sex
@@ -270,32 +284,18 @@
     
     // BMI
     if (BMI) {
-        body = [body stringByAppendingFormat:@"BMI: %.01f.\n", [BMI doubleValueForUnit:[HKUnit countUnit]]];
+        body = [body stringByAppendingFormat:@"BMI: %.01f. ", [BMI doubleValueForUnit:[HKUnit countUnit]]];
     }
     
     // HR
     if (heartRate) {
-        body = [body stringByAppendingFormat:@"HR: %@.\n", heartRate];
+        body = [body stringByAppendingFormat:@"Heart Rate: %@. ", heartRate];
     }
-    
-    // Breathing
-    NSString *tmp = [[CurrentReport sharedReport] breathing] == notBreathing ? @" not " : @" ";
-    body = [body stringByAppendingFormat:@"Victim%@breathing. ", tmp];
-    
-    // Severity
-    tmp = [[CurrentReport sharedReport] injurySeverity] == nonCritical ? @"Non c" : @"C";
-    body = [body stringByAppendingFormat:@"%@ritical injury. ", tmp];
-    
-    // Trauma
-    body = [body stringByAppendingFormat:@"%@. ", [[CurrentReport sharedReport] traumaType]];
-    
-    // Body Part
-    body = [body stringByAppendingFormat:@"\nBody Part hurt: %@.", [[CurrentReport sharedReport] bodyPartHurt]];
     
     // Related Tweets
     NSMutableDictionary *tweets = [[CurrentReport sharedReport] tweetsRelatedTo];
     if ([[tweets allKeys] count] > 0) {
-        body = [body stringByAppendingString:@"\nNearby tweets related to:"];
+        body = [body stringByAppendingString:@"\n\nTWEETS:"];
         for (NSString *key in tweets) {
             body = [body stringByAppendingFormat:@"\n%@: %@", [key capitalizedString], [tweets objectForKey:key]];
         }
