@@ -89,7 +89,6 @@
     if ([MFMessageComposeViewController canSendText]) {
         
         NSString *body = @"";
-        NSLog(@"%@", self.location);
         
         if (!self.location) {
             body = [NSString stringWithFormat:@"Unconscious Victim"];
