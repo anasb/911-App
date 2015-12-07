@@ -214,7 +214,7 @@
 
 - (void)sendTextMessageWithBirth:(NSDate*)DOB
                           andSex:(NSString*)sex
-                    andBloodType:(NSString*)bloodType
+                    andBloodType:(NSString*)blood
                           andBMI:(HKQuantity*)BMI
                        andHeight:(HKQuantity*)height
                        andWeight:(HKQuantity*)weight
@@ -280,6 +280,11 @@
     // Weight
     if (weight) {
         body = [body stringByAppendingFormat:@"Weight: %ldlbs. ", (long)[weight doubleValueForUnit:[HKUnit poundUnit]]];
+    }
+    
+    // Blood Type
+    if (blood) {
+        body = [body stringByAppendingFormat:@"Blood Type: %@. ", blood];
     }
     
     // BMI
