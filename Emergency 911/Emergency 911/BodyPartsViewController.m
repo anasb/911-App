@@ -238,7 +238,7 @@
     
     // Name
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"USER_NAME"]) {
-        body = [body stringByAppendingFormat:@"Name: %@.", [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_NAME"]];
+        body = [body stringByAppendingFormat:@"Name: %@. ", [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_NAME"]];
     }
     
     // Age
@@ -260,7 +260,7 @@
     
     // Height
     if (height) {
-        body = [body stringByAppendingFormat:@"Height: %.02f feet. ", [height doubleValueForUnit:[HKUnit footUnit]]];
+        body = [body stringByAppendingFormat:@"Height: %.02fft. ", [height doubleValueForUnit:[HKUnit footUnit]]];
     }
     
     // Weight
