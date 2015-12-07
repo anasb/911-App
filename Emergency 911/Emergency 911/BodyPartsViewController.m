@@ -96,7 +96,6 @@
 {
     NSDate *DOB = [self.healthStore dateOfBirthWithError:nil];
 
-
     NSString *sex;
     HKBiologicalSexObject *sexObj = [self.healthStore biologicalSexWithError:nil];
     if (sexObj.biologicalSex == HKBiologicalSexMale) {
@@ -146,10 +145,80 @@
         }
     }
     
-    [self sendTextMessageWithBirth:DOB andSex:sex andBloodType:bloodType];
+    // Get BMI
+    __block HKQuantity *BMI;
+    HKQuantityType *bmiType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyMassIndex];
+    HKSampleQuery *bmiQuery = [[HKSampleQuery alloc] initWithSampleType:bmiType  predicate:nil limit:1 sortDescriptors:nil resultsHandler:^(HKSampleQuery * _Nonnull query, NSArray<__kindof HKSample *> * _Nullable results, NSError * _Nullable error) {
+        
+        if (results.count > 0) {
+            HKQuantitySample *sample = (HKQuantitySample*)results[0];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                BMI = sample.quantity;
+            });
+        }
+        
+    }];
+    [self.healthStore executeQuery:bmiQuery];
+    
+    // Get Height
+    __block HKQuantity *height;
+    HKQuantityType *heightType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeight];
+    HKSampleQuery *heightQuery = [[HKSampleQuery alloc] initWithSampleType:heightType  predicate:nil limit:1 sortDescriptors:nil resultsHandler:^(HKSampleQuery * _Nonnull query, NSArray<__kindof HKSample *> * _Nullable results, NSError * _Nullable error) {
+        
+        if (results.count > 0) {
+            HKQuantitySample *sample = (HKQuantitySample*)results[0];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                height = sample.quantity;
+            });
+        }
+        
+    }];
+    [self.healthStore executeQuery:heightQuery];
+    
+    // Get Weight
+    __block HKQuantity *weight;
+    HKQuantityType *weightType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyMass];
+    HKSampleQuery *weightQuery = [[HKSampleQuery alloc] initWithSampleType:weightType  predicate:nil limit:1 sortDescriptors:nil resultsHandler:^(HKSampleQuery * _Nonnull query, NSArray<__kindof HKSample *> * _Nullable results, NSError * _Nullable error) {
+        
+        if (results.count > 0) {
+            HKQuantitySample *sample = (HKQuantitySample*)results[0];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                weight = sample.quantity;
+            });
+        }
+        
+    }];
+    [self.healthStore executeQuery:weightQuery];
+    
+    // Get HR
+    __block NSString *heartRate;
+    HKQuantityType *heartType = [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
+    HKSampleQuery *heartQuery = [[HKSampleQuery alloc] initWithSampleType:heartType  predicate:nil limit:1 sortDescriptors:nil resultsHandler:^(HKSampleQuery * _Nonnull query, NSArray<__kindof HKSample *> * _Nullable results, NSError * _Nullable error) {
+        
+        if (results.count > 0) {
+            HKQuantitySample *sample = (HKQuantitySample*)results[0];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                double minutes_ago = floor([[NSDate date] timeIntervalSinceDate:sample.endDate]/60);
+                NSString *mn_ago_string = minutes_ago <= 60.0 ? [NSString stringWithFormat:@"%ld mn ago", (long)minutes_ago] : [NSString stringWithFormat:@"> than 1h ago"];
+                heartRate = [NSString stringWithFormat:@"%ld (%@)", (long)[sample.quantity doubleValueForUnit:[HKUnit unitFromString:@"count/min"]], mn_ago_string];
+            });
+        }
+        
+    }];
+    [self.healthStore executeQuery:heartQuery];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self sendTextMessageWithBirth:DOB andSex:sex andBloodType:bloodType andBMI:BMI andHeight:height andWeight:weight andHeartRate:heartRate];
+    });
 }
 
-- (void)sendTextMessageWithBirth:(NSDate*)DOB andSex:(NSString*)sex andBloodType:(NSString*)bloodType
+- (void)sendTextMessageWithBirth:(NSDate*)DOB
+                          andSex:(NSString*)sex
+                    andBloodType:(NSString*)bloodType
+                          andBMI:(HKQuantity*)BMI
+                       andHeight:(HKQuantity*)height
+                       andWeight:(HKQuantity*)weight
+                    andHeartRate:(NSString*)heartRate
 {
     [SVProgressHUD dismiss];
     
@@ -160,8 +229,7 @@
         
         // Location
         if (self.location) {
-            body = [body stringByAppendingFormat:@"GPS: %f,%f \
-                    Accuracy: +/- %.01fm\n", \
+            body = [body stringByAppendingFormat:@"GPS: %f,%f (+/- %.01fm).\n", \
                     self.location.coordinate.latitude, self.location.coordinate.longitude, self.location.horizontalAccuracy];
         }
         
@@ -179,12 +247,32 @@
                                                toDate:now
                                                options:0];
             NSInteger age = [ageComponents year];
-            body = [body stringByAppendingFormat:@"Age: %li\n", (long)age];
+            body = [body stringByAppendingFormat:@"Age: %li, ", (long)age];
         }
         
         // Sex
         if (sex) {
-            body = [body stringByAppendingFormat:@"Sex: %@\n", sex];
+            body = [body stringByAppendingFormat:@"Sex: %@, ", sex];
+        }
+        
+        // Height
+        if (height) {
+            body = [body stringByAppendingFormat:@"Height: %.02f feet, ", [height doubleValueForUnit:[HKUnit footUnit]]];
+        }
+        
+        // Weight
+        if (weight) {
+            body = [body stringByAppendingFormat:@"Weight: %ldlbs, ", (long)[weight doubleValueForUnit:[HKUnit poundUnit]]];
+        }
+        
+        // BMI
+        if (BMI) {
+            body = [body stringByAppendingFormat:@"BMI: %.01f.\n", [BMI doubleValueForUnit:[HKUnit countUnit]]];
+        }
+        
+        // HR
+        if (heartRate) {
+            body = [body stringByAppendingFormat:@"HR: %@.\n", heartRate];
         }
         
         // Breathing
@@ -204,7 +292,11 @@
         controller.body = body;
         controller.recipients = @[@"2911"];
         controller.messageComposeDelegate = self;
-        [self presentViewController:controller animated:YES completion:nil];
+
+        // Fix blank view bug?
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self presentViewController:controller animated:YES completion:nil];
+        });
         
     } else {
         [SVProgressHUD showErrorWithStatus:@"Can't send a text from this device"];
